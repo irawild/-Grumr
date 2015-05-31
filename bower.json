@@ -1,0 +1,32 @@
+{
+  "name": "Grumr",
+  "version": "0.0.1",
+  "homepage": "https://github.com/irawild/-Grumr",
+  "authors": [
+    "Rafael Lucchese <rafael.lucchese@gmail.com>"
+  ],
+  "description": "Plataforma web que visa facilitar a localização comunicação com lavadores de automovel que prestam serviços a domicílio.",
+  "main": "index.html",
+  "keywords": [
+    "Grumr",
+    "brasilia",
+    "carros",
+    "lavagem",
+    "domicilio",
+    "agendamento"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "libs",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.4",
+    "angular":"~1.4.0",
+    "angular-route":"~1.4.0"
+  }
+}
