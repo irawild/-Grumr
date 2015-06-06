@@ -15,22 +15,35 @@ if(empty($_POST['name'])  		||
 	return false;
    }
 
+$client = ucfirst($_POST['name']);
+
 $sendgrid = new SendGrid('rslucchese', 'S3ndGr33d');
 $email = new SendGrid\Email();
 $email
     ->addTo('grumr@grumr.com.br')
+    ->addTo('rafael@grumr.com.br')
+    ->addTo('junior@grumr.com.br')
+    ->addTo('pedro@grumr.com.br')
+    ->addTo('neto@grumr.com.br')
+    ->addTo('sarah@grumr.com.br')
     ->setFrom($_POST['email'])
     ->setSubject('Grumr: Nova Solicitação')
-    ->setText($_POST['message'])
-    ->setHtml($_POST['message'])
+    ->setText("Equipe Grumr, \r\n {$client} acaba de enviar a seguinte solicitação:\r\n \r\n" . $_POST['message'])
+    ->setHtml("Equipe Grumr, <br/> {$client} acaba de enviar a seguinte solicitação:<br/><br/>" . $_POST['message'])
 ;
 
-$sendgrid->send($email);
-
-// Or catch the error
+$email2 = new SendGrid\Email();
+$email2
+    ->addTo($_POST['email'])
+    ->setFrom('grumr@grumr.com.br')
+    ->setSubject('Sua Solicitação foi Recebida')
+    ->setText('Querido ' . $client . ", \r\n A sua solicitação foi recebida. Entraremos em contato em breve. \r\n\r\n Atenciosamente, \r\n\r\n Equipe Grumr")
+    ->setHtml('<i>Querido ' . $client . ", </i><br /> A sua solicitação foi recebida. Entraremos em contato em breve. <br /><br /> Atenciosamente, <br /><br /> <b><i>Equipe Grumr</i></b>")
+;
 
 try {
     $sendgrid->send($email);
+    $sendgrid->send($email2);
 } catch(\SendGrid\Exception $e) {
     echo $e->getCode();
     foreach($e->getErrors() as $er) {
