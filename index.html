@@ -55,10 +55,27 @@
 
         }
 
+        select.form-control {
+
+            height:62px;
+        }
+
     </style>
 </head>
 
 <body id="page-top" class="index">
+    
+    <!-- Google Analytics-->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-63839300-1', 'auto');
+      ga('send', 'pageview');
+
+    </script>
 
     <!-- Navigation -->
     <nav class="navbar navbar-default navbar-fixed-top">
@@ -196,12 +213,53 @@
                                     <p class="help-block text-danger"></p>
                                 </div>
                             </div>
+
                             <div class="col-md-6">
+                                
                                 <div class="form-group">
-                                    <textarea class="form-control" placeholder="Em que bairro deseja o atendimento? Qual é a sua disponibilidade?" id="message"></textarea>
+                                    <input class="form-control" placeholder="Cep *" id="cep" required data-validation-required-message="Por favor digite o seu cep.">
                                     <p class="help-block text-danger"></p>
                                 </div>
+
+                                <div class="form-group">
+                                    <select class="form-control" required name="bairro" id="bairro">
+                                        <option value="Não Especificado" selected disabled>Bairro Onde o Automóvel Será Lavado</option>
+                                        <option value="Asa Norte">Asa Norte</option>
+                                        <option value="Asa Sul">Asa Sul</option>
+                                        <option value="Noroeste">Noroeste</option>
+                                        <option value="Sudoeste">Sudoeste</option>
+                                        <option value="Águas Claras">Águas Claras</option>
+                                        <option value="Guará">Guará</option>
+                                        <option value="CA">CA</option>
+                                        <option value="Lago Norte">Lago Norte</option>
+                                        <option value="Lago Sul">Lago Sul</option>
+                                    </select>
+                                    <p class="help-block text-danger"></p>
+                                </div>
+                                
+                                <div class="form-group">
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <select id="dia" name="dia" class="form-control">
+                                                <option value="Não Especificado" selected disabled>Manhã ou Tarde</option>
+                                                <option value="Manhã">Manhã</option>
+                                                <option value="Tarde">Tarde</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <select class="form-control" name="finde" id="finde">
+                                                <option value="Não Especificado" selected disabled>Dia de Semana ou Fim de Semana</option>
+                                                <option value="Dia de Semana">Dia de Semana</option>
+                                                <option value="Fim de Semana">Fim de Semana</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                        
+                                </div>
                             </div>
+
                             <div class="clearfix"></div>
                             <div class="col-lg-12 text-center">
                                 <div id="success"></div>
@@ -255,18 +313,6 @@
     <!-- Angular and Angular-route-->
     <script type="text/javascript" src="libs/angular/angular.min.js"></script>
     <script type="text/javascript" src="libs/angular-route/angular-route.min.js"></script>
-
-    <!-- Google Analytics-->
-    <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-      ga('create', 'UA-63839300-1', 'auto');
-      ga('send', 'pageview');
-
-    </script>
 
 </body>
 
