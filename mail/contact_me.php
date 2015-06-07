@@ -23,12 +23,12 @@ $client = ucfirst($_POST['name']);
 $sendgrid = new SendGrid('rslucchese', 'S3ndGr33d');
 $email = new SendGrid\Email();
 $email
-    //->addTo('grumr@grumr.com.br')
+    ->addTo('grumr@grumr.com.br')
     ->addTo('rafael@grumr.com.br')
-    //->addTo('junior@grumr.com.br')
-    //->addTo('pedro@grumr.com.br')
-    //->addTo('neto@grumr.com.br')
-    //->addTo('sarah@grumr.com.br')
+    ->addTo('junior@grumr.com.br')
+    ->addTo('pedro@grumr.com.br')
+    ->addTo('neto@grumr.com.br')
+    ->addTo('sarah@grumr.com.br')
     ->setFrom($_POST['email'])
     ->setSubject('Grumr: Nova Solicitação')
     ->setText("Equipe Grumr, \r\n\r\n {$client} acaba de enviar uma solicitação com os seguintes detalhes:\r\n \r\n Bairro: " . $_POST['bairro'] . "\r\n \r\n Cep: {$_POST['cep']} \r\n \r\n Manhã ou Tarde: {$_POST['dia']} \r\n \r\n Dia de Semana ou Fim de Semana: {$_POST['finde']} \r\n \r\n Telefone: {$_POST['phone']} \r\n \r\n Email: {$_POST['email']}")
